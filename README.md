@@ -172,3 +172,51 @@ This allows users who have completed a stay (guests) to provide feedback on prop
 This encompasses backend strategies focused on ensuring the application's performance and scalability. It includes techniques like database indexing for faster query retrieval, implementing caching mechanisms (e.g., using Redis) to reduce database load, and writing efficient database queries. While not directly visible to end-users, this feature is crucial for providing a smooth, responsive user experience, especially as data volume grows.
 
 ---
+
+## 🔒 API Security
+
+Ensuring the security of the API and the data it handles is a critical aspect of the Airbnb Clone project. Robust security measures protect users, maintain data integrity, and build trust in the platform. This section outlines the key security measures implemented and why they are crucial.
+
+---
+
+### Key Security Measures Implemented
+
+- **Authentication (Token-Based):**
+
+  - **What:** Verifies the identity of users attempting to access protected resources. Implemented using secure tokens (e.g., JWT or Django REST Framework Tokens) issued upon successful login.
+  - **Why:** Ensures that only registered and logged-in users can perform actions like booking properties, managing listings, or accessing their profile information.
+
+- **Authorization (Permission Controls):**
+
+  - **What:** Determines what actions an _authenticated_ user is allowed to perform. Utilizes permission classes (e.g., DRF permissions) to restrict access based on user roles or resource ownership.
+  - **Why:** Prevents users from accessing or modifying data that doesn't belong to them (e.g., editing another user's profile, deleting someone else's property listing, viewing unauthorized booking details).
+
+- **Rate Limiting:**
+
+  - **What:** Restricts the number of requests a user or IP address can make to the API within a specific time window.
+  - **Why:** Protects the API from abuse, such as brute-force login attempts or Denial-of-Service (DoS) attacks, ensuring the service remains available and performant for legitimate users.
+
+- **Input Validation & Sanitization:**
+
+  - **What:** Rigorously validates and sanitizes all data received through API requests before processing or storing it.
+  - **Why:** Mitigates common web vulnerabilities like SQL injection and Cross-Site Scripting (XSS - by ensuring data stored is safe), preventing attackers from manipulating the database or executing malicious scripts.
+
+- **HTTPS Enforcement:**
+
+  - **What:** Ensures all communication between the client applications and the API server is encrypted using TLS/SSL.
+  - **Why:** Protects sensitive data (like passwords, personal information, and session tokens) from being intercepted while in transit over the network.
+
+- **Secure Password Storage:**
+
+  - **What:** Stores user passwords using strong, salted hashing algorithms (like Argon2, bcrypt, or PBKDF2, managed by Django's authentication system).
+  - **Why:** Prevents attackers from recovering plain-text passwords even if they gain access to the database backup or contents.
+
+- **Environment Variable Management:**
+  - **What:** Stores sensitive configuration details (like the application's `SECRET_KEY`, database credentials, external API keys) outside the version-controlled codebase, typically using environment variables or a secrets management tool.
+  - **Why:** Prevents accidental exposure of critical credentials in public or private repositories.
+
+---
+
+### Why Security is Crucial for Key Areas
+
+- **Protecting User Data:** Users entrust the platform with personal information (email, name, potentially booking history). Strong security is vital to prevent data breaches, comply with privacy regulations,
