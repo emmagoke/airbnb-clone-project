@@ -140,3 +140,35 @@ Represents the financial transaction associated with a booking.
   - Corresponds to one `Booking` (Many-to-One or One-to-One depending on implementation).
 
 ---
+
+## ✨ Feature Breakdown
+
+This section details the core features implemented in the Airbnb Clone backend, explaining the purpose and contribution of each to the overall platform functionality.
+
+---
+
+### **User Management**
+
+This feature handles user registration, secure login/authentication processes, and the management of user profiles. It forms the foundation of the platform by identifying unique users (both guests and potential hosts) and enabling personalized experiences and secure access control to other features like booking or listing properties.
+
+### **Property Management**
+
+This allows registered users (hosts) to create, read, update, and delete (CRUD) listings for their properties. It includes managing essential property details such as title, description, location (address), pricing per night, and availability. This feature builds the core inventory of rentable spaces available on the platform.
+
+### **Booking System**
+
+This enables authenticated users (guests) to search for available properties based on criteria like dates and location, and then make reservations. It manages the booking lifecycle, including checking for availability conflicts, confirming reservations, and tracking the status of each booking (e.g., pending, confirmed, completed, cancelled). This feature directly connects guests seeking accommodation with the properties listed by hosts.
+
+### **Payment Processing**
+
+This feature integrates mechanisms to handle financial transactions related to bookings. It involves processing payments securely when a booking is confirmed, recording transaction details, and managing payment statuses (e.g., succeeded, failed). This ensures hosts are compensated and completes the core booking transaction loop.
+
+### **Review System**
+
+This allows users who have completed a stay (guests) to provide feedback on properties by submitting ratings (e.g., 1-5 stars) and textual comments. It helps build trust and transparency within the platform's community by offering social proof and insights into property quality. This feedback aids future guests in decision-making and encourages hosts to maintain high standards.
+
+### **Data Optimization**
+
+This encompasses backend strategies focused on ensuring the application's performance and scalability. It includes techniques like database indexing for faster query retrieval, implementing caching mechanisms (e.g., using Redis) to reduce database load, and writing efficient database queries. While not directly visible to end-users, this feature is crucial for providing a smooth, responsive user experience, especially as data volume grows.
+
+---
